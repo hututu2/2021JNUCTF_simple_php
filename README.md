@@ -13,7 +13,7 @@
 
 - **Writeup：** 
 
-  根据提示，访问index.php.swp得到源码，进行审计发现大部分webshell构造方式都被ban，因为`('getflag')();`的方式来获取在线函数，所以可以将字符串取反后装成十六进制，添加上%构造 URL 编码的特殊字符串，再通过取反构造webshell：
+  根据提示，访问index.php.swp得到源码，进行审计发现大部分webshell构造方式都被ban，因为eval()可以利用`('getflag')();`的方式来执行函数，所以可以将字符串取反后装成十六进制，添加上%构造 URL 编码的特殊字符串，再通过取反构造webshell：
 
   ```php
   <?php
